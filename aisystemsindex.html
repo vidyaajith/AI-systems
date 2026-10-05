@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Systems | Athmaja Vidya Ajith, Fractional COO</title>
+<meta name="description" content="Dashboards, chief of staff agents and automations that take work off the founder's plate.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2308080A'/%3E%3Cpath d='M18 20 L32 46 L46 20' fill='none' stroke='%23D9A94C' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
+<style>
+  :root{
+    --ink:#08080A;--ink-2:#0E0E11;--ink-3:#141418;
+    --line:rgba(255,255,255,.09);--line-2:rgba(255,255,255,.16);
+    --paper:#F2EEE6;--paper-dim:rgba(242,238,230,.62);--paper-faint:rgba(242,238,230,.8);
+    --gold:#D9A94C;--gold-soft:rgba(217,169,76,.13);
+    --rust:#C4643C;--rust-soft:rgba(196,100,60,.13);
+    --green:#5FD08A;--green-soft:rgba(95,208,138,.13);
+    --serif:'Instrument Serif', Georgia, serif;
+    --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --pad: clamp(24px, 6vw, 120px);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--paper);font-family:var(--sans);font-weight:300;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.035;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");}
+  ::selection{background:var(--gold);color:var(--ink)}
+  #progress{position:fixed;top:0;left:0;height:2px;width:0%;z-index:100;background:linear-gradient(90deg,var(--rust),var(--gold),var(--green));transition:width .1s linear}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;align-items:center;justify-content:space-between;padding:18px var(--pad);backdrop-filter:blur(14px);background:rgba(8,8,10,0);border-bottom:1px solid transparent;transition:background .4s ease,border-color .4s ease,padding .4s ease}
+  nav.stuck{background:rgba(8,8,10,.85);border-bottom-color:var(--line);padding:14px var(--pad)}
+  .nav-mark{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--paper-dim)}
+  .nav-mark b{color:var(--paper);font-weight:500}
+  .nav-cta{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink);background:var(--paper);text-decoration:none;padding:10px 20px;border-radius:100px;transition:background .3s ease,transform .3s ease;white-space:nowrap}
+  .nav-cta:hover{background:var(--gold);transform:translateY(-1px)}
+  .nav-links{display:flex;align-items:center;gap:clamp(16px,2.4vw,28px)}
+  .nav-link{font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--paper-dim);text-decoration:none;white-space:nowrap;transition:color .3s ease}
+  .nav-link:hover{color:var(--paper)}
+
+  section{position:relative;z-index:2;padding:clamp(48px,6.5vw,86px) var(--pad)}
+  .wrap{max-width:1160px;margin:0 auto}
+  .narrow{max-width:840px;margin:0 auto}
+  .eyebrow{font-size:clamp(22px,3.2vw,34px);letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--gold);line-height:1.1;display:flex;align-items:center;gap:18px;margin-bottom:14px}
+  .eyebrow::after{content:'';flex:1;height:1px;background:var(--line);max-width:120px;align-self:center}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(19px,2.2vw,22px);line-height:1.4;letter-spacing:0;margin-bottom:22px;color:var(--paper-dim)}
+  h2 em{font-style:italic;color:var(--gold)}
+  .lede{font-size:clamp(17px,1.9vw,19px);line-height:1.65;color:var(--paper-faint);max-width:66ch}
+
+  /* hero */
+  .hero{min-height:auto;display:flex;flex-direction:column;justify-content:center;padding-top:104px;padding-bottom:clamp(48px,6vw,80px);overflow:hidden}
+  .hero::after{content:'';position:absolute;z-index:-1;width:min(150vw,1500px);height:min(150vw,1500px);top:-60%;right:-35%;border-radius:50%;background:radial-gradient(circle,rgba(217,169,76,.13) 0%,rgba(196,100,60,.06) 38%,transparent 66%);filter:blur(30px)}
+  .hero-tag{display:inline-flex;align-items:center;gap:12px;align-self:flex-start;border:1px solid var(--line-2);border-radius:100px;padding:6px 15px 6px 11px;margin-bottom:24px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-dim)}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 12px var(--gold)}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,6.4vw,82px);line-height:1;letter-spacing:-.03em;margin-bottom:22px}
+  h1 .it{font-style:italic;display:block;color:var(--gold)}
+  .hero-sub{font-size:clamp(16px,1.8vw,19px);line-height:1.55;color:var(--paper-dim);max-width:46ch;margin-bottom:30px}
+  .hero-sub b{color:var(--paper);font-weight:400}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-size:14px;font-weight:500;padding:16px 30px;border-radius:100px;transition:all .35s cubic-bezier(.22,1,.36,1)}
+  .btn-primary{background:var(--paper);color:var(--ink)}
+  .btn-primary:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 14px 40px rgba(217,169,76,.28)}
+  .btn-ghost{border:1px solid var(--line-2);color:var(--paper-dim)}
+  .btn-ghost:hover{border-color:var(--paper);color:var(--paper)}
+  .btn .arw{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .btn:hover .arw{transform:translateX(4px)}
+
+  /* illustration */
+  .ill{display:block;width:100%;height:auto}
+  .figure{border:1px solid var(--line);border-radius:6px;background:var(--ink-2);padding:clamp(20px,3vw,34px);position:relative;overflow:hidden}
+  .figure .cap{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--paper-faint);margin-top:18px;display:flex;align-items:center;gap:10px}
+  .figure .cap::before{content:'';width:16px;height:1px;background:var(--gold)}
+  .js-rv .draw path,.js-rv .draw line{stroke-dasharray:var(--len,600);stroke-dashoffset:var(--len,600);transition:stroke-dashoffset 1.5s cubic-bezier(.22,1,.36,1)}
+  .rv.in .draw path,.rv.in .draw line{stroke-dashoffset:0}
+  .js-rv .fadein{opacity:0;transition:opacity .9s ease .5s}
+  .rv.in .fadein{opacity:1}
+  .ico{width:22px;height:22px;flex-shrink:0;stroke:var(--gold);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+  .ico.grn{stroke:var(--green)}
+  .icobox{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:var(--gold-soft);border:1px solid rgba(217,169,76,.2);margin-bottom:24px}
+
+  /* results */
+  .results{background:var(--ink-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:38px}
+  .r{background:var(--ink-2);padding:clamp(22px,2.6vw,34px);display:flex;flex-direction:column;gap:14px}
+  .r .big{font-family:var(--serif);font-size:clamp(34px,4.6vw,56px);line-height:.95;letter-spacing:-.03em;color:var(--gold)}
+  .r .big.grn{color:var(--green)}
+  .r p{font-size:17px;color:var(--paper-dim);line-height:1.5}
+  .r .ttl{font-family:var(--serif);font-size:clamp(20px,2.2vw,26px);font-weight:400;line-height:1.2;letter-spacing:-.015em;color:var(--paper-dim)}
+  .r .sub{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint)}
+
+  /* four builds */
+  .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
+  .ap{background:var(--ink-2);padding:clamp(24px,3vw,34px);transition:background .4s ease;display:block}
+  .ap:hover{background:var(--ink-3)}
+  .ap .num{font-family:var(--serif);font-size:13px;letter-spacing:.1em;color:var(--gold);display:block;margin-bottom:18px}
+  .ap h3{font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:12px;line-height:1.3}
+  .ap p{font-size:14px;color:var(--paper-faint);line-height:1.6}
+
+  /* examples */
+  .split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,7vw,110px);align-items:start}
+  .bullets{list-style:none;margin-top:30px;display:grid;gap:18px;max-width:62ch}
+  .bullets li{display:flex;gap:14px;font-size:15px;color:var(--paper-faint);line-height:1.6;align-items:flex-start}
+  .bullets .ico{width:18px;height:18px;margin-top:3px}
+  .bullets b{color:var(--paper);font-weight:500;display:block;margin-bottom:2px}
+  .imgslot{margin-top:34px;border:1px dashed var(--line-2);border-radius:6px;background:var(--ink-2);aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px}
+  .imgslot .ico{width:26px;height:26px;margin-bottom:6px}
+  .imgslot .k{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+  .imgslot .n{font-family:var(--serif);font-size:clamp(18px,2.2vw,26px);color:var(--paper-dim)}
+  .imgslot .s{font-size:12px;color:var(--paper-faint);font-family:ui-monospace,Menlo,monospace}
+  .shot{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px}
+
+  /* final */
+  .final{text-align:center;position:relative;overflow:hidden}
+  .final::after{content:'';position:absolute;z-index:-1;left:50%;bottom:-55%;transform:translateX(-50%);width:min(140vw,1300px);height:min(140vw,1300px);border-radius:50%;background:radial-gradient(circle,rgba(196,100,60,.14) 0%,rgba(217,169,76,.06) 40%,transparent 66%);filter:blur(24px)}
+  .final h2{font-size:clamp(28px,4.4vw,52px);max-width:16ch;margin:0 auto 28px}
+  .final .lede{margin:0 auto 46px;text-align:center}
+  .final .eyebrow{justify-content:center}
+  .final .eyebrow::before{content:'';flex:none;width:60px;height:1px;background:var(--line)}
+  .final .eyebrow::after{flex:none;width:60px}
+  .final .mail{display:block;margin-top:30px;font-size:13px;letter-spacing:.14em;color:var(--paper-faint);text-decoration:none}
+  .final .mail:hover{color:var(--gold)}
+  footer{border-top:1px solid var(--line);padding:34px var(--pad);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:12px;letter-spacing:.06em;color:var(--paper-faint);position:relative;z-index:2}
+  footer a{color:var(--paper-dim);text-decoration:none;border-bottom:1px solid var(--line-2);padding-bottom:2px}
+  footer a:hover{color:var(--gold);border-color:var(--gold)}
+
+  .js-rv .rv{opacity:0;transform:translateY(26px);transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1)}
+  .js-rv .rv.in{opacity:1;transform:none}
+
+  @media(max-width:1000px){
+    .approach{grid-template-columns:repeat(2,1fr)}
+    .split{grid-template-columns:1fr;gap:40px}
+    .rgrid{grid-template-columns:1fr}
+  }
+  @media(max-width:720px){
+    .nav-cta{font-size:10.5px;letter-spacing:.06em;padding:8px 14px}
+    .nav-mark b{display:none}
+    .nav-mark{font-size:11px;max-width:46vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .nav-links{gap:12px}
+    .nav-link{font-size:10.5px;letter-spacing:.06em}
+    .hero-actions .btn{flex:1;justify-content:center}
+  }
+  @media(max-width:520px){.approach{grid-template-columns:1fr}}
+  @media(max-width:420px){.nav-link{display:none}}
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .js-rv .rv{opacity:1;transform:none}
+    .js-rv .draw path,.js-rv .draw line{stroke-dashoffset:0}
+    .js-rv .fadein{opacity:1}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<nav id="nav">
+  <div class="nav-mark">Athmaja Vidya Ajith &nbsp;·&nbsp; <b>Fractional COO</b></div>
+  <div class="nav-links">
+    <a class="nav-link" href="https://vidyaajith.github.io/main-portfolio/">← Home</a>
+    <a class="nav-link" href="#builds">What I build</a>
+    <a class="nav-cta" href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a call</a>
+  </div>
+</nav>
+
+<!-- 1. HERO -->
+<header class="hero">
+  <div class="wrap" style="width:100%">
+    <div class="hero-tag rv"><span class="dot"></span> AI-powered operations</div>
+    <h1 class="rv">AI that takes work<span class="it">off the founder's plate.</span></h1>
+    <p class="hero-sub rv">Dashboards, chief of staff agents and automations I build and run, so your business <b>keeps moving without you in every thread</b>.</p>
+    <div class="hero-actions rv">
+      <a class="btn btn-primary" href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a 30 minute intro call <span class="arw">→</span></a>
+      <a class="btn btn-ghost" href="#builds">See what I build</a>
+    </div>
+  </div>
+</header>
+
+<!-- 2. RESULTS -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="eyebrow rv">Results at a glance</div>
+    <h2 class="rv">Less founder time, <em>more done.</em></h2>
+    <div class="rgrid">
+      <div class="r rv"><div class="big grn">[XX hrs]</div><div class="ttl">Saved per week</div><div class="sub">[Client type]</div><p>[One line on what changed.]</p></div>
+      <div class="r rv"><div class="big grn">[XX%]</div><div class="ttl">[Metric name]</div><div class="sub">[Timeframe]</div><p>[One line on what changed.]</p></div>
+      <div class="r rv"><div class="big grn">[XX]</div><div class="ttl">[Metric name]</div><div class="sub">[Timeframe]</div><p>[One line on what changed.]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. THE FOUR BUILDS -->
+<section id="builds">
+  <div class="wrap">
+    <div class="eyebrow rv">What I build</div>
+    <h2 class="rv">Four ways AI <em>runs the back office.</em></h2>
+    <p class="lede rv">Every build starts with how the work actually moves, then AI goes where it removes the most founder dependency.</p>
+    <div class="approach">
+      <a class="ap rv" href="#dashboards" style="text-decoration:none;color:inherit">
+        <span class="num">01</span>
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20V8"/></svg></div>
+        <h3>Dashboards</h3><p>Live numbers, so you stop finding problems from clients.</p>
+      </a>
+      <a class="ap rv" href="#agents" style="text-decoration:none;color:inherit">
+        <span class="num">02</span>
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 15c3 0 5 1.6 5 4.5"/></svg></div>
+        <h3>Chief of Staff agents</h3><p>Briefs, follow-ups and tracking that run in the background.</p>
+      </a>
+      <a class="ap rv" href="#automations" style="text-decoration:none;color:inherit">
+        <span class="num">03</span>
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Scheduled automations</h3><p>Recurring reports and reminders that happen without being asked.</p>
+      </a>
+      <a class="ap rv" href="#systems" style="text-decoration:none;color:inherit">
+        <span class="num">04</span>
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></div>
+        <h3>Projects and knowledge</h3><p>SOPs, onboarding and shared context your team can use.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4. EXAMPLES -->
+<section id="dashboards" style="background:var(--ink-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow rv">01 · Dashboards</div>
+    <h2 class="rv">[Example headline], <em>[italic ending.]</em></h2>
+    <div class="split">
+      <div class="imgslot rv" style="margin-top:0">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+        <span class="k">Screenshot</span><span class="n">[Dashboard name]</span><span class="s">images/dashboard.png</span>
+      </div>
+      <ul class="bullets rv" style="margin-top:0">
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The problem</b>[One or two lines.]</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>What I built</b>[One or two lines.]</span></li>
+        <li><svg class="ico grn" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The result</b>[Number if you have one.]</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="agents">
+  <div class="wrap">
+    <div class="eyebrow rv">02 · Chief of Staff agents</div>
+    <h2 class="rv">[Example headline], <em>[italic ending.]</em></h2>
+    <div class="split">
+      <div class="imgslot rv" style="margin-top:0">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+        <span class="k">Screenshot</span><span class="n">[Agent output or setup]</span><span class="s">images/agent.png</span>
+      </div>
+      <ul class="bullets rv" style="margin-top:0">
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The problem</b>[One or two lines.]</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>What I built</b>[One or two lines.]</span></li>
+        <li><svg class="ico grn" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The result</b>[Number if you have one.]</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="automations" style="background:var(--ink-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow rv">03 · Scheduled automations</div>
+    <h2 class="rv">[Example headline], <em>[italic ending.]</em></h2>
+    <div class="split">
+      <div class="imgslot rv" style="margin-top:0">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+        <span class="k">Screenshot</span><span class="n">[Scheduled task or report]</span><span class="s">images/automation.png</span>
+      </div>
+      <ul class="bullets rv" style="margin-top:0">
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The problem</b>[One or two lines.]</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>What I built</b>[One or two lines.]</span></li>
+        <li><svg class="ico grn" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The result</b>[Number if you have one.]</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="systems">
+  <div class="wrap">
+    <div class="eyebrow rv">04 · Projects and knowledge</div>
+    <h2 class="rv">[Example headline], <em>[italic ending.]</em></h2>
+    <div class="split">
+      <div class="imgslot rv" style="margin-top:0">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
+        <span class="k">Screenshot</span><span class="n">[Project or knowledge base]</span><span class="s">images/systems.png</span>
+      </div>
+      <ul class="bullets rv" style="margin-top:0">
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The problem</b>[One or two lines.]</span></li>
+        <li><svg class="ico" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>What I built</b>[One or two lines.]</span></li>
+        <li><svg class="ico grn" viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg><span><b>The result</b>[Number if you have one.]</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 5. HOW IT PLUGS IN -->
+<section style="background:var(--ink-2);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="eyebrow rv">How it plugs in</div>
+    <h2 class="rv">Inputs in, <em>done work out.</em></h2>
+    <div class="figure rv" style="margin-top:32px">
+      <svg class="ill" viewBox="0 0 720 140" fill="none" aria-label="Founder inputs flow into AI systems and come out as done work">
+        <g class="fadein">
+          <rect x="30" y="45" width="170" height="50" rx="8" fill="rgba(95,208,138,.1)" stroke="rgba(95,208,138,.45)"/>
+          <text x="115" y="75" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" letter-spacing="2" fill="#5FD08A">FOUNDER INPUTS</text>
+        </g>
+        <g class="draw" style="--len:120" stroke="rgba(217,169,76,.5)" stroke-width="1.4"><path d="M200 70h60"/><path d="M460 70h60"/></g>
+        <g class="fadein" style="transition-delay:.3s">
+          <rect x="260" y="45" width="200" height="50" rx="8" fill="rgba(217,169,76,.09)" stroke="rgba(217,169,76,.45)"/>
+          <text x="360" y="75" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" letter-spacing="2" fill="#D9A94C">AGENTS · DASHBOARDS</text>
+        </g>
+        <g class="fadein" style="transition-delay:.55s">
+          <rect x="520" y="45" width="170" height="50" rx="8" fill="rgba(95,208,138,.1)" stroke="rgba(95,208,138,.45)"/>
+          <text x="605" y="75" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" letter-spacing="2" fill="#5FD08A">DONE WORK</text>
+        </g>
+      </svg>
+      <div class="cap">The system handles it so you don't have to</div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CTA -->
+<section class="final" id="book">
+  <div class="narrow">
+    <div class="eyebrow rv">Work with me</div>
+    <h2 class="rv">Want this set up for your business?</h2>
+    <p class="lede rv">We start with a scoping call: what's eating your time, and where AI can take it off your plate.</p>
+    <a class="btn btn-primary rv" href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a 30 minute intro call <span class="arw">→</span></a>
+    <a class="mail rv" href="mailto:athmajaajith@gmail.com">athmajaajith@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div>Athmaja Vidya Ajith · Fractional COO · Operations &amp; Systems</div>
+  <div><a href="https://vidyaajith.github.io/main-portfolio/">Home</a> &nbsp;·&nbsp; <a href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a call</a> &nbsp;·&nbsp; <a href="mailto:athmajaajith@gmail.com">Email</a></div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'), bar=document.getElementById('progress');
+  function onScroll(){
+    var y=window.scrollY||document.documentElement.scrollTop;
+    nav.classList.toggle('stuck', y>60);
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.width=(h>0?(y/h)*100:0)+'%';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  var groups=new WeakMap();
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el=e.target, p=el.parentElement;
+      var i=groups.get(p)||0; groups.set(p,i+1);
+      el.style.transitionDelay=(Math.min(i,6)*70)+'ms';
+      el.classList.add('in');
+      io.unobserve(el);
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
+})();
+</script>
+</body>
+</html>
