@@ -81,7 +81,7 @@ h1 .it{font-style:italic;display:block;color:var(--gold)}
 .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
 .ap{--acc:var(--gold);--acc-soft:var(--gold-soft);--acc-line:rgba(217,169,76,.4);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:300px;padding:clamp(24px,2.6vw,32px);border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--ink-3),var(--ink-2) 70%);text-decoration:none;color:inherit}
 .ap.g{--acc:var(--green);--acc-soft:var(--green-soft);--acc-line:rgba(95,208,138,.4)}
-.ap.r{--acc:var(--rust);--acc-soft:var(--rust-soft);--acc-line:rgba(196,100,60,.45)}
+.ap.rust{--acc:var(--rust);--acc-soft:var(--rust-soft);--acc-line:rgba(196,100,60,.45)}
 .approach .ap.rv{transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),translate .45s cubic-bezier(.22,1,.36,1),border-color .45s ease}
 .ap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);transform:scaleX(0);transition:transform .6s cubic-bezier(.22,1,.36,1)}
 .ap::after{content:'';position:absolute;z-index:0;width:260px;height:260px;right:-90px;bottom:-110px;border-radius:50%;background:radial-gradient(circle,var(--acc-soft),transparent 70%);opacity:.35;transition:opacity .5s ease;pointer-events:none}
@@ -89,8 +89,8 @@ h1 .it{font-style:italic;display:block;color:var(--gold)}
 .ap:hover{translate:0 -4px;border-color:var(--acc-line)}
 .ap:hover::before{transform:scaleX(1)}
 .ap:hover::after{opacity:1}
-.ap .num{position:absolute;top:14px;right:22px;font-family:var(--serif);font-style:italic;font-size:64px;line-height:1;color:var(--acc);opacity:.16;transition:opacity .45s ease}
-.ap:hover .num{opacity:.32}
+.ap .num{position:absolute;top:14px;right:22px;font-family:var(--serif);font-style:italic;font-size:64px;line-height:1;color:var(--acc);opacity:.5;transition:opacity .45s ease}
+.ap:hover .num{opacity:.8}
 .ap .icobox{background:var(--acc-soft);border-color:var(--acc-line);margin-bottom:28px}
 .ap .ico{stroke:var(--acc)}
 .ap h3{font-family:var(--serif);font-size:clamp(24px,2.2vw,28px);font-weight:400;letter-spacing:-.01em;line-height:1.1;margin-bottom:12px;color:var(--paper);min-height:2.2em}
