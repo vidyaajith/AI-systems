@@ -91,12 +91,26 @@
   .r .sub{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-faint)}
 
   /* four builds */
-  .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:56px}
-  .ap{background:var(--ink-2);padding:clamp(24px,3vw,34px);transition:background .4s ease;display:block}
-  .ap:hover{background:var(--ink-3)}
-  .ap .num{font-family:var(--serif);font-size:13px;letter-spacing:.1em;color:var(--gold);display:block;margin-bottom:18px}
-  .ap h3{font-size:17px;font-weight:500;letter-spacing:-.01em;margin-bottom:12px;line-height:1.3}
-  .ap p{font-size:14px;color:var(--paper-faint);line-height:1.6}
+  .approach{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:56px}
+  .ap{--acc:var(--gold);--acc-soft:var(--gold-soft);--acc-line:rgba(217,169,76,.4);position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:300px;padding:clamp(24px,2.6vw,32px);border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--ink-3),var(--ink-2) 70%);text-decoration:none;color:inherit}
+  .ap.g{--acc:var(--green);--acc-soft:var(--green-soft);--acc-line:rgba(95,208,138,.4)}
+  .ap.r{--acc:var(--rust);--acc-soft:var(--rust-soft);--acc-line:rgba(196,100,60,.45)}
+  .approach .ap.rv{transition:opacity .9s cubic-bezier(.22,1,.36,1),transform .9s cubic-bezier(.22,1,.36,1),translate .45s cubic-bezier(.22,1,.36,1),border-color .45s ease}
+  .ap::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);transform:scaleX(0);transition:transform .6s cubic-bezier(.22,1,.36,1)}
+  .ap::after{content:'';position:absolute;z-index:0;width:260px;height:260px;right:-90px;bottom:-110px;border-radius:50%;background:radial-gradient(circle,var(--acc-soft),transparent 70%);opacity:.35;transition:opacity .5s ease;pointer-events:none}
+  .ap > *{position:relative;z-index:1}
+  .ap:hover{translate:0 -4px;border-color:var(--acc-line)}
+  .ap:hover::before{transform:scaleX(1)}
+  .ap:hover::after{opacity:1}
+  .ap .num{position:absolute;top:14px;right:22px;font-family:var(--serif);font-style:italic;font-size:64px;line-height:1;color:var(--acc);opacity:.16;transition:opacity .45s ease}
+  .ap:hover .num{opacity:.32}
+  .ap .icobox{background:var(--acc-soft);border-color:var(--acc-line);margin-bottom:28px}
+  .ap .ico{stroke:var(--acc)}
+  .ap h3{font-family:var(--serif);font-size:clamp(24px,2.2vw,28px);font-weight:400;letter-spacing:-.01em;line-height:1.1;margin-bottom:12px;color:var(--paper);min-height:2.2em}
+  .ap p{font-size:14.5px;color:var(--paper-dim);line-height:1.6}
+  .ap .more{margin-top:auto;padding-top:26px;display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--acc)}
+  .ap .more span{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .ap:hover .more span{transform:translateX(5px)}
 
   /* examples */
   .split{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,7vw,110px);align-items:start}
@@ -141,7 +155,7 @@
     .nav-link{font-size:10.5px;letter-spacing:.06em}
     .hero-actions .btn{flex:1;justify-content:center}
   }
-  @media(max-width:520px){.approach{grid-template-columns:1fr}}
+  @media(max-width:520px){.approach{grid-template-columns:1fr}.ap,.ap h3{min-height:0}}
   @media(max-width:420px){.nav-link{display:none}}
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
@@ -198,25 +212,29 @@
     <h2 class="rv">Four ways AI <em>runs the back office.</em></h2>
     <p class="lede rv">Every build starts with how the work actually moves, then AI goes where it removes the most founder dependency.</p>
     <div class="approach">
-      <a class="ap rv" href="#dashboards" style="text-decoration:none;color:inherit">
+      <a class="ap rv" href="#dashboards">
         <span class="num">01</span>
         <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20V8"/></svg></div>
         <h3>Dashboards</h3><p>Live numbers, so you stop finding problems from clients.</p>
+        <span class="more">See it <span>&rarr;</span></span>
       </a>
-      <a class="ap rv" href="#agents" style="text-decoration:none;color:inherit">
+      <a class="ap g rv" href="#agents">
         <span class="num">02</span>
         <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 15c3 0 5 1.6 5 4.5"/></svg></div>
         <h3>Chief of Staff agents</h3><p>Briefs, follow-ups and tracking that run in the background.</p>
+        <span class="more">See it <span>&rarr;</span></span>
       </a>
-      <a class="ap rv" href="#automations" style="text-decoration:none;color:inherit">
+      <a class="ap r rv" href="#automations">
         <span class="num">03</span>
         <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
         <h3>Scheduled automations</h3><p>Recurring reports and reminders that happen without being asked.</p>
+        <span class="more">See it <span>&rarr;</span></span>
       </a>
-      <a class="ap rv" href="#systems" style="text-decoration:none;color:inherit">
+      <a class="ap rv" href="#systems">
         <span class="num">04</span>
-        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2v4"/><path d="M16 2v4"/></svg></div>
+        <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h7"/></svg></div>
         <h3>Projects and knowledge</h3><p>SOPs, onboarding and shared context your team can use.</p>
+        <span class="more">See it <span>&rarr;</span></span>
       </a>
     </div>
   </div>
