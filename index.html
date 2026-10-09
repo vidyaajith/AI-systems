@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
 
@@ -124,7 +124,13 @@
     <h2 class="build-title rv">A chief of staff <em>that never clocks out.</em></h2>
     <p class="lede rv">Agents that write the briefs, chase the follow-ups and track what's moving, so nothing waits on you.</p>
     <!-- copy the whole <article class="case"> block to add another example -->
-    <article class="case rv">
+    <div class="slider rv">
+      <div class="slider-bar">
+        <div class="slider-tabs" role="tablist"><button class="slider-tab on" type="button" role="tab" aria-selected="true">Weekly brief</button><button class="slider-tab" type="button" role="tab" aria-selected="false">Ask anything</button><button class="slider-tab" type="button" role="tab" aria-selected="false">Find the answer</button><button class="slider-tab" type="button" role="tab" aria-selected="false">Create tasks</button></div>
+        <div class="slider-arrows"><button class="slider-btn prev" type="button" aria-label="Previous example">&larr;</button><button class="slider-btn next" type="button" aria-label="Next example">&rarr;</button></div>
+      </div>
+      <div class="track">
+    <article class="case">
       <div class="case-head">
         <div><div class="k">Example 01</div><h3>A weekly ops brief, <em>before anyone asks.</em></h3></div>
         <div class="client">Professional services firm</div>
@@ -134,11 +140,11 @@
         <p class="brief-lead">Worth a look:</p>
         <ul>
           <li><b>Wins:</b> 10 were logged in the last 7 days, but 9 are placeholder opportunities created as already-won on the same day. So the dashboard's "most recent wins" and "days since last close" are misleading. Probably a data-entry pattern to clean up in GHL.</li>
-          <li><b><span class="redact" aria-label="name hidden">Xxxxx Xxxxxx Xxxxx</span></b> has a blocked client response task, and is also the oldest unanswered GHL thread, at 195 days.</li>
-          <li><b>Submitted this week:</b> <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span> and <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>. One client's Slack thread is flagged with an open question that could put their case at risk.</li>
-          <li><b><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span></b> is a new active client. <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>'s list was recreated under a new ID, and the old duplicate lists are gone.</li>
+          <li><b><span class="redact" aria-label="name hidden">Xxxxx Xxxxxx Xxxxx</span></b> (submitted) has a blocked "RFE Response" task, and is also the oldest unanswered GHL thread, at 195 days.</li>
+          <li><b>Filed this week:</b> <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span> and <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>. One client's Slack is flagged: the attorney has a question that could put their adjustment of status at risk.</li>
+          <li><b><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span></b> is a new active matter. <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>'s list was recreated under a new ID, and the old duplicate lists are gone.</li>
           <li><b>Pipeline:</b> 208 open, 64% stuck in Contact Attempted. Calls dropped 38% week over week (66 vs 107), and 40 leads were reached. The old 2026 pipeline still has 418 opportunities left to migrate, almost flat.</li>
-          <li><b>Ops Review:</b> all 16 "this week priority" tasks are stale. Five haven't been touched in 7 days, including a client decision waiting on the owner. There are 322 open tasks, 40 completed this week and 33 new. No week-ago snapshot exists yet, so the % change is blank.</li>
+          <li><b>Ops Review:</b> all 16 "this week priority" tasks are stale. Five haven't been touched in 7 days, including the change-of-attorney letter decision. There are 322 open tasks, 40 completed this week and 33 new. No week-ago snapshot exists yet, so the % change is blank.</li>
         </ul>
         <div class="brief-note">Client names hidden</div>
       </div>
@@ -148,23 +154,23 @@
         <div class="step res"><span class="n">iii.</span><b>The result</b><p>Clear on what to prioritise this week, with issues flagged before they become a problem for the business.</p></div>
       </div>
     </article>
-    <article class="case rv">
+    <article class="case">
       <div class="case-head">
         <div><div class="k">Example 02</div><h3>Ask anything, <em>get the full story.</em></h3></div>
         <div class="client">Professional services firm</div>
       </div>
       <div class="chat">
-        <div class="q">Why is <span class="redact" aria-label="name hidden">Xxxxx Xxxx</span>'s case not sent for external review?</div>
+        <div class="q">Why is <span class="redact" aria-label="name hidden">Xxxxx Xxxx</span>'s case not sent to union/peer group?</div>
         <div class="tool">Used ClickUp: Filter Tasks &rsaquo;</div>
         <div class="a">
-          <p>It's stuck on payment logistics to the reviewing body, not on anything with the client.</p>
+          <p>It's stuck on payment logistics to the union, not on anything with the client.</p>
           <p>Timeline from ClickUp + Slack:</p>
           <ul>
-            <li>Client already paid the firm for the review, invoice sent. Both done.</li>
-            <li>But <b>"Send the case for external review"</b> has been sitting in <b>"under review"</b> for weeks, never moved to complete.</li>
-            <li><b>"Pay the reviewing body and notify case manager"</b> (<span class="redact" aria-label="name hidden">Xxxxxxx</span>'s task, actually making the payment) is still marked <b>"to do"</b>, untouched.</li>
+            <li>Client already paid the firm for the union/peer consultation, invoice sent. Both done.</li>
+            <li>But <b>"Send the case to Union/Peer Consultations"</b> has been sitting in <b>"under review"</b> for weeks, never moved to complete.</li>
+            <li><b>"Pay Union/Peer group and notify Case Manager"</b> (<span class="redact" aria-label="name hidden">Xxxxxxx</span>'s task, actually paying the union) is still marked <b>"to do"</b>, untouched.</li>
           </ul>
-          <p>Why: the reviewing body requires payment by check, not card. That kicked off a mini saga. <span class="redact" aria-label="name hidden">Xxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxxxxx</span> how to handle it, <span class="redact" aria-label="name hidden">Xxxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxx</span> if they could still use the old payment account, <span class="redact" aria-label="name hidden">Xxxx</span> needed to personally authorise the payment via an email prompt, <span class="redact" aria-label="name hidden">Xxxxxxx</span> flagged it as "awaiting approval", and <span class="redact" aria-label="name hidden">Xxxx</span> approved it.</p>
+          <p>Why: the union requires payment by check, not card. That kicked off a mini saga. <span class="redact" aria-label="name hidden">Xxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxxxxx</span> how to handle it, <span class="redact" aria-label="name hidden">Xxxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxx</span> if they could still use the old Checkflo account, <span class="redact" aria-label="name hidden">Xxxx</span> needed to personally authorise the payment via an email prompt, <span class="redact" aria-label="name hidden">Xxxxxxx</span> flagged it as "awaiting approval", and <span class="redact" aria-label="name hidden">Xxxx</span> approved it.</p>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
@@ -174,46 +180,46 @@
         <div class="step res"><span class="n">iii.</span><b>The result</b><p>Any question about the business, answered from across all the systems.</p></div>
       </div>
     </article>
-    <article class="case rv">
+    <article class="case">
       <div class="case-head">
-        <div><div class="k">Example 03</div><h3>Knows the playbook, <em>spots where it slipped.</em></h3></div>
+        <div><div class="k">Example 03</div><h3>Any question, <em>answered from the source.</em></h3></div>
         <div class="client">Professional services firm</div>
       </div>
       <div class="chat">
-        <div class="q">Um, wait, I wanted you to check SOPs in the shared drive. If there is an existing SOP for notice responses.</div>
+        <div class="q">Um, wait, I wanted you to check SOPs in the shared drive. If there is an existing SOP for RFE.</div>
         <div class="tool">Used 2 tools &rsaquo;</div>
         <div class="a">
           <p>Yes, there is one, and it's fairly comprehensive. I should have checked Drive first, sorry about that.</p>
-          <p><b class="doclink">"SOP: Notice Response Handling &amp; Pricing"</b></p>
+          <p><b class="doclink">"SOP: Request for Evidence (RFE) / Notice of Intent to Deny (NOID) Handling &amp; Pricing Calculation"</b></p>
           <p>It covers:</p>
           <ul>
-            <li>Purpose and scope: which notice types and case types it applies to</li>
-            <li>Roles: admin staff (intake, date-stamping, deadline tracking), case manager plus senior approval (substantive review, response strategy), finance and billing (pricing, invoicing)</li>
-            <li>Procedure: receipt and intake &rarr; initial review and triage (standard vs. complex) &rarr; response strategy</li>
-            <li>A library of example responses on file (<span class="redact" aria-label="name hidden">Xx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxx Xxxxx</span>, <span class="redact" aria-label="name hidden">Xxxx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxxxx Xxxxxxx</span>)</li>
-            <li><b>Pricing framework:</b> per-page pricing for each notice, with page count verified by admin and the case handler before billing, plus discount and adjustment rules</li>
+            <li>Purpose and scope: RFE, NOID and equivalent notices; applies to O-1, O-2 and EB petitions</li>
+            <li>Roles: admin staff (intake, date-stamping, deadline tracking), case manager plus attorney approval (substantive review, response strategy), finance and billing (pricing, invoicing)</li>
+            <li>Procedure: receipt and intake &rarr; initial review and triage (standard vs. complex RFE vs. NOID) &rarr; response strategy</li>
+            <li>A library of example RFE responses on file (<span class="redact" aria-label="name hidden">Xx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxx Xxxxx</span>, <span class="redact" aria-label="name hidden">Xxxx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxxxx Xxxxxxx</span>)</li>
+            <li><b>Pricing framework:</b> priced per page of the USCIS-issued notice (not counting exhibits or attorney drafts), with page count verified by admin and the case handler before billing, plus discount and adjustment rules</li>
           </ul>
-          <p>So the gap isn't "no SOP". It's that this one exists but clearly isn't being followed consistently, since <span class="redact" aria-label="name hidden">Xxx Xxxxx</span>'s and <span class="redact" aria-label="name hidden">Xxxx Xxxx</span>'s responses both had confusion and delays recently. The doc itself looks solid.</p>
+          <p>So the gap isn't "no SOP". It's that this one exists but clearly isn't being followed consistently, since <span class="redact" aria-label="name hidden">Xxx Xxxxx</span>'s and <span class="redact" aria-label="name hidden">Xxxx Xxxx</span>'s RFEs both had confusion and delays recently. The doc itself looks solid.</p>
           <p>Given that, I'd scrap the draft I gave you and instead suggest: don't write a new SOP, audit whether the existing one is actually being used (deadline logged in ClickUp per step 5.1? page-count-based invoice issued per 5.5?). Want me to check either case against these specific steps to see where it broke down?</p>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
       <div class="steps">
-        <div class="step"><span class="n">i.</span><b>The problem</b><p>SOPs sat in a shared drive nobody checked, so the team was about to write a process that already existed.</p></div>
-        <div class="step"><span class="n">ii.</span><b>What I built</b><p>The agent reads the SOPs in the shared drive, checks them against what's happening in ClickUp and Slack, and shows where the process broke down.</p></div>
-        <div class="step res"><span class="n">iii.</span><b>The result</b><p>No duplicate SOP. Instead, a clear audit of where the existing one isn't being followed.</p></div>
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Answers were buried in shared drives, docs and threads, so finding out something simple meant searching for it yourself.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>An agent you can ask anything. It searches Drive, ClickUp and Slack, reads what it finds and answers with the source.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>The answer in one reply, with the source attached and a suggested next step.</p></div>
       </div>
     </article>
-    <article class="case rv">
+    <article class="case">
       <div class="case-head">
         <div><div class="k">Example 04</div><h3>Say it once, <em>it's on the board.</em></h3></div>
         <div class="client">Professional services firm</div>
       </div>
       <div class="chat">
-        <div class="q">Mm, can you add a task for <span class="redact" aria-label="name hidden">Xxxxxxx</span> to update the SOP for the payment tool to our uh, new client account and also update the default setting in the payment tool to our new client account? Uh, and due date has to be tomorrow and add the tag of this week's priority.</div>
+        <div class="q">Mm, can you add a task for <span class="redact" aria-label="name hidden">Xxxxxxx</span> to update the SOP for Lope to our uh, new IOLTA account and also update the default feature in Lope to our new IOLTA account? Uh, and due date has to be tomorrow and add the tag of this week's priority.</div>
         <div class="tool">Used ClickUp: Create Task &rsaquo;</div>
         <div class="a">
-          <p>Done: <b class="doclink">Update payment tool SOP and default account to new client account</b>, assigned to <span class="redact" aria-label="name hidden">Xxxxxxx</span>, due tomorrow, tagged "this week priority."</p>
+          <p>Done: <b class="doclink">Update LawPay SOP and default account to new IOLTA</b>, assigned to <span class="redact" aria-label="name hidden">Xxxxxxx</span>, due tomorrow, tagged "this week priority."</p>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
@@ -223,6 +229,8 @@
         <div class="step res"><span class="n">iii.</span><b>The result</b><p>Any task created in seconds, straight from a conversation.</p></div>
       </div>
     </article>
+      </div>
+    </div>
     <a class="backlink rv" href="#builds">&uarr; All builds</a>
   </div>
 </section>
@@ -325,6 +333,6 @@
   <div><a href="https://vidyaajith.github.io/main-portfolio/">Home</a> &nbsp;·&nbsp; <a href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a call</a> &nbsp;·&nbsp; <a href="mailto:athmajaajith@gmail.com">Email</a></div>
 </footer>
 
-<script src="site.js?v=3"></script>
+<script src="site.js?v=4"></script>
 </body>
 </html>
