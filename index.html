@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 </head>
 <body>
 
@@ -126,17 +126,26 @@
     <!-- copy the whole <article class="case"> block to add another example -->
     <article class="case rv">
       <div class="case-head">
-        <div><div class="k">Example 01</div><h3>[Example headline], <em>[italic ending.]</em></h3></div>
-        <div class="client">[Client type]</div>
+        <div><div class="k">Example 01</div><h3>A weekly ops brief, <em>before anyone asks.</em></h3></div>
+        <div class="client">Professional services firm</div>
       </div>
-      <div class="imgslot">
-        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
-        <span class="k">Screenshot</span><span class="n">[Agent output or setup]</span><span class="s">images/agent.png</span>
+      <div class="brief">
+        <div class="brief-head"><span class="dot"></span><span>Weekly ops brief</span><span class="by">Chief of Staff agent</span></div>
+        <p class="brief-lead">Worth a look:</p>
+        <ul>
+          <li><b>Wins:</b> 10 were logged in the last 7 days, but 9 are placeholder opportunities created as already-won on the same day. So the dashboard's "most recent wins" and "days since last close" are misleading. Probably a data-entry pattern to clean up in GHL.</li>
+          <li><b><span class="redact" aria-label="name hidden">Xxxxx Xxxxxx Xxxxx</span></b> has a blocked client response task, and is also the oldest unanswered GHL thread, at 195 days.</li>
+          <li><b>Submitted this week:</b> <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span> and <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>. One client's Slack thread is flagged with an open question that could put their case at risk.</li>
+          <li><b><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span></b> is a new active client. <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>'s list was recreated under a new ID, and the old duplicate lists are gone.</li>
+          <li><b>Pipeline:</b> 208 open, 64% stuck in Contact Attempted. Calls dropped 38% week over week (66 vs 107), and 40 leads were reached. The old 2026 pipeline still has 418 opportunities left to migrate, almost flat.</li>
+          <li><b>Ops Review:</b> all 16 "this week priority" tasks are stale. Five haven't been touched in 7 days, including a client decision waiting on the owner. There are 322 open tasks, 40 completed this week and 33 new. No week-ago snapshot exists yet, so the % change is blank.</li>
+        </ul>
+        <div class="brief-note">Client names hidden</div>
       </div>
       <div class="steps">
-        <div class="step"><span class="n">i.</span><b>The problem</b><p>[One or two lines.]</p></div>
-        <div class="step"><span class="n">ii.</span><b>What I built</b><p>[One or two lines.]</p></div>
-        <div class="step res"><span class="n">iii.</span><b>The result</b><p>[Number if you have one.]</p></div>
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Wins, pipeline, client threads and tasks sat in separate tools, so issues only surfaced once someone noticed.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>A Chief of Staff agent that reads across GHL, Slack and the task board and writes a weekly ops brief.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>Clear on what to prioritise this week, with issues flagged before they become a problem for the business.</p></div>
       </div>
     </article>
     <a class="backlink rv" href="#builds">&uarr; All builds</a>

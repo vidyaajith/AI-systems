@@ -196,3 +196,16 @@ footer a:hover{color:var(--gold);border-color:var(--gold)}
   .steps{grid-template-columns:1fr}
   .step + .step{border-left:0;border-top:1px solid var(--line)}
 }
+
+/* agent brief */
+.brief{padding:clamp(22px,3.4vw,44px) clamp(22px,3.4vw,48px);border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 100% 0%,var(--acc-soft),transparent 55%),var(--ink-3)}
+.brief-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:11px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:22px}
+.brief-head .dot{background:var(--acc);box-shadow:0 0 12px var(--acc)}
+.brief-head .by{margin-left:auto;color:var(--paper-dim);letter-spacing:.16em}
+.brief-lead{font-weight:500;color:var(--paper);margin-bottom:12px}
+.brief ul{list-style:none;display:grid;gap:14px;max-width:78ch}
+.brief li{position:relative;padding-left:20px;font-size:15px;line-height:1.6;color:var(--paper-faint)}
+.brief li::before{content:'';position:absolute;left:2px;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--acc-line)}
+.brief li b{color:var(--paper);font-weight:500}
+.redact{filter:blur(5px);user-select:none;color:var(--paper)}
+.brief-note{margin-top:22px;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--paper-dim)}
