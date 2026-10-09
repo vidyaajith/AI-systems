@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -146,6 +146,62 @@
         <div class="step"><span class="n">i.</span><b>The problem</b><p>Wins, pipeline, client threads and tasks sat in separate tools, so issues only surfaced once someone noticed.</p></div>
         <div class="step"><span class="n">ii.</span><b>What I built</b><p>A Chief of Staff agent that reads across GHL, Slack and the task board and writes a weekly ops brief.</p></div>
         <div class="step res"><span class="n">iii.</span><b>The result</b><p>Clear on what to prioritise this week, with issues flagged before they become a problem for the business.</p></div>
+      </div>
+    </article>
+    <article class="case rv">
+      <div class="case-head">
+        <div><div class="k">Example 02</div><h3>Ask anything, <em>get the full story.</em></h3></div>
+        <div class="client">Professional services firm</div>
+      </div>
+      <div class="chat">
+        <div class="q">Why is <span class="redact" aria-label="name hidden">Xxxxx Xxxx</span>'s case not sent for external review?</div>
+        <div class="tool">Used ClickUp: Filter Tasks &rsaquo;</div>
+        <div class="a">
+          <p>It's stuck on payment logistics to the reviewing body, not on anything with the client.</p>
+          <p>Timeline from ClickUp + Slack:</p>
+          <ul>
+            <li>Client already paid the firm for the review, invoice sent. Both done.</li>
+            <li>But <b>"Send the case for external review"</b> has been sitting in <b>"under review"</b> for weeks, never moved to complete.</li>
+            <li><b>"Pay the reviewing body and notify case manager"</b> (<span class="redact" aria-label="name hidden">Xxxxxxx</span>'s task, actually making the payment) is still marked <b>"to do"</b>, untouched.</li>
+          </ul>
+          <p>Why: the reviewing body requires payment by check, not card. That kicked off a mini saga. <span class="redact" aria-label="name hidden">Xxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxxxxx</span> how to handle it, <span class="redact" aria-label="name hidden">Xxxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxx</span> if they could still use the old payment account, <span class="redact" aria-label="name hidden">Xxxx</span> needed to personally authorise the payment via an email prompt, <span class="redact" aria-label="name hidden">Xxxxxxx</span> flagged it as "awaiting approval", and <span class="redact" aria-label="name hidden">Xxxx</span> approved it.</p>
+        </div>
+        <div class="brief-note">Names and identifying details hidden</div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Answers were spread across ClickUp and Slack, so a simple status question meant digging through threads or asking around.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>A Chief of Staff agent you can ask anything. It searches across every system and explains what's actually going on.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>Any question about the business, answered from across all the systems.</p></div>
+      </div>
+    </article>
+    <article class="case rv">
+      <div class="case-head">
+        <div><div class="k">Example 03</div><h3>Knows the playbook, <em>spots where it slipped.</em></h3></div>
+        <div class="client">Professional services firm</div>
+      </div>
+      <div class="chat">
+        <div class="q">Um, wait, I wanted you to check SOPs in the shared drive. If there is an existing SOP for notice responses.</div>
+        <div class="tool">Used 2 tools &rsaquo;</div>
+        <div class="a">
+          <p>Yes, there is one, and it's fairly comprehensive. I should have checked Drive first, sorry about that.</p>
+          <p><b class="doclink">"SOP: Notice Response Handling &amp; Pricing"</b></p>
+          <p>It covers:</p>
+          <ul>
+            <li>Purpose and scope: which notice types and case types it applies to</li>
+            <li>Roles: admin staff (intake, date-stamping, deadline tracking), case manager plus senior approval (substantive review, response strategy), finance and billing (pricing, invoicing)</li>
+            <li>Procedure: receipt and intake &rarr; initial review and triage (standard vs. complex) &rarr; response strategy</li>
+            <li>A library of example responses on file (<span class="redact" aria-label="name hidden">Xx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxx Xxxxx</span>, <span class="redact" aria-label="name hidden">Xxxx Xxxxxx</span>, <span class="redact" aria-label="name hidden">Xxxxxxx Xxxxxxx</span>)</li>
+            <li><b>Pricing framework:</b> per-page pricing for each notice, with page count verified by admin and the case handler before billing, plus discount and adjustment rules</li>
+          </ul>
+          <p>So the gap isn't "no SOP". It's that this one exists but clearly isn't being followed consistently, since <span class="redact" aria-label="name hidden">Xxx Xxxxx</span>'s and <span class="redact" aria-label="name hidden">Xxxx Xxxx</span>'s responses both had confusion and delays recently. The doc itself looks solid.</p>
+          <p>Given that, I'd scrap the draft I gave you and instead suggest: don't write a new SOP, audit whether the existing one is actually being used (deadline logged in ClickUp per step 5.1? page-count-based invoice issued per 5.5?). Want me to check either case against these specific steps to see where it broke down?</p>
+        </div>
+        <div class="brief-note">Names and identifying details hidden</div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>SOPs sat in a shared drive nobody checked, so the team was about to write a process that already existed.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>The agent reads the SOPs in the shared drive, checks them against what's happening in ClickUp and Slack, and shows where the process broke down.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>No duplicate SOP. Instead, a clear audit of where the existing one isn't being followed.</p></div>
       </div>
     </article>
     <a class="backlink rv" href="#builds">&uarr; All builds</a>
