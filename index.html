@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -244,22 +244,103 @@
     </div>
     <h2 class="build-title rv">The recurring work, <em>done on schedule.</em></h2>
     <p class="lede rv">Reports, reminders and check-ins that go out on time, without anyone having to remember them.</p>
-    <!-- copy the whole <article class="case"> block to add another example -->
-    <article class="case rv">
-      <div class="case-head">
-        <div><div class="k">Example 01</div><h3>[Example headline], <em>[italic ending.]</em></h3></div>
-        <div class="client">[Client type]</div>
+    <div class="slider rv">
+      <div class="slider-bar">
+        <div class="slider-tabs" role="tablist"><button class="slider-tab on" type="button" role="tab" aria-selected="true">Daily report</button><button class="slider-tab" type="button" role="tab" aria-selected="false">Morning briefing</button><button class="slider-tab" type="button" role="tab" aria-selected="false">Stagnation watch</button></div>
+        <div class="slider-arrows"><button class="slider-btn prev" type="button" aria-label="Previous example">&larr;</button><button class="slider-btn next" type="button" aria-label="Next example">&rarr;</button></div>
       </div>
-      <div class="imgslot">
-        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="1.6"/><path d="M21 16l-5-5-9 9"/></svg>
-        <span class="k">Screenshot</span><span class="n">[Scheduled task or report]</span><span class="s">images/automation.png</span>
+      <div class="track">
+        <article class="case">
+      <div class="case-head">
+        <div><div class="k">Example 01</div><h3>The whole business, <em>in one daily message.</em></h3></div>
+        <div class="client">Professional services firm</div>
+      </div>
+      <div class="task">
+        <div class="task-head">
+          <div class="task-name"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span class="redact" aria-label="name hidden">XX Xxxxxxxxxx</span> Daily Business Report</div>
+          <span class="sched">Every day</span>
+        </div>
+        <div class="task-src">Reads <span>Gmail</span><span>Slack</span><span>ClickUp</span></div>
+        <div class="task-label">Instructions</div>
+        <div class="a">
+          <p>You are producing a daily strategic business report for <span class="redact" aria-label="name hidden">XX Xxxxxxxxxx</span>, a boutique immigration law firm. The recipient is the COO. Deliver the report as a Slack message to a group DM with the COO and the founder.</p>
+          <p>Gather data from these sources, focusing on the last 24 hours plus anything still open or unresolved from before that:</p>
+          <ul>
+            <li><b>Gmail:</b> unread and important threads. Look for client emergencies (travel/visa issues, USCIS deadlines, RFEs), client complaints or fee disputes, threads sitting more than 48h without a reply, and internal escalations from the founder or the attorney team.</li>
+            <li><b>Slack:</b> recent activity across public and private channels. There is one channel per active client case (e.g. #o1-*, #eb1-*, #aos-*). Flag anything urgent, blocked or needing a decision from the COO or founder.</li>
+            <li><b>ClickUp:</b> tasks newly overdue, urgent-priority tasks, and tasks stuck in "waiting on team" or "blocked" for a long time. Also check the ops coordinator's workload, and flag urgent tasks stuck waiting on someone else.</li>
+          </ul>
+          <p>Then write a concise Slack message, starting with <b>🔴 Needs attention today</b>: the 3–5 most urgent items across all three platforms, each with enough context to act on.</p>
+        </div>
+        <div class="brief-note">Firm, names, accounts and IDs hidden</div>
       </div>
       <div class="steps">
-        <div class="step"><span class="n">i.</span><b>The problem</b><p>[One or two lines.]</p></div>
-        <div class="step"><span class="n">ii.</span><b>What I built</b><p>[One or two lines.]</p></div>
-        <div class="step res"><span class="n">iii.</span><b>The result</b><p>[Number if you have one.]</p></div>
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Updates were spread across Gmail, Slack and ClickUp, so the COO had to check three places to know what needed attention.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>A scheduled agent that runs every day, reads all three, and sends one prioritised report to Slack.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>One message a day with the handful of things that actually need attention.</p></div>
       </div>
     </article>
+    <article class="case">
+      <div class="case-head">
+        <div><div class="k">Example 02</div><h3>A morning briefing, <em>and the tasks to match.</em></h3></div>
+        <div class="client">Professional services firm</div>
+      </div>
+      <div class="task">
+        <div class="task-head">
+          <div class="task-name"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Daily morning briefing</div>
+          <span class="sched">Weekdays · 9 AM</span>
+        </div>
+        <div class="task-src">Reads <span>Gmail</span><span>Slack</span><span>ClickUp</span></div>
+        <div class="task-label">Instructions</div>
+        <div class="a">
+          <p>You are acting as a daily briefing assistant for the Chief of Staff at <span class="redact" aria-label="name hidden">XX Xxxxxxxxxx</span>. Your job is to prepare a clean, actionable morning briefing AND create ClickUp tasks for anything that needs attention. This runs on working days only.</p>
+          <p><b>Objective:</b> scan Gmail and Slack for anything that needs attention today, present it as a concise prioritised summary, and create a ClickUp task in the COS Team list for each action item found.</p>
+          <ul>
+            <li><b>Step 0, lookback window:</b> on Monday, look back to last Friday morning so the weekend is covered. Tuesday to Friday, use the last 24 hours. Don't rely on the scheduler's last-run time; it has been unreliable.</li>
+            <li><b>Step 1, Gmail:</b> search for unread or recent emails since the lookback start. Filter out promotions, newsletters, automated notifications, and CC threads where the Chief of Staff isn't expected to act.</li>
+            <li><b>Step 2, Slack:</b> scan channels and DMs for the same window and pull out anything needing a reply or decision.</li>
+            <li><b>Step 3, ClickUp:</b> create one task per action item, with context and a link back to the source.</li>
+          </ul>
+        </div>
+        <div class="brief-note">Firm, names, accounts and IDs hidden</div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Mornings started with combing through email and Slack, and action items got lost along the way.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>A weekday briefing that scans everything since the last working day and turns each action item into a ClickUp task.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>Every action item is on the board before the day starts.</p></div>
+      </div>
+    </article>
+    <article class="case">
+      <div class="case-head">
+        <div><div class="k">Example 03</div><h3>Catches slipping cases, <em>stays quiet otherwise.</em></h3></div>
+        <div class="client">Professional services firm</div>
+      </div>
+      <div class="task">
+        <div class="task-head">
+          <div class="task-name"><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Client Stagnation Watch</div>
+          <span class="sched">Mon / Wed / Fri</span>
+        </div>
+        <div class="task-src">Reads <span>ClickUp</span><span>Slack</span></div>
+        <div class="task-label">Instructions</div>
+        <div class="a">
+          <p>You are running the client STAGNATION check: a lean, targeted alert system that complements the full weekly client status check. Each run starts fresh; all history lives in a ClickUp doc page.</p>
+          <p><b>Cost discipline is the whole point.</b> Don't build full per-client tables. Don't create a new page each run. Don't post anything if nothing is flagged. Silence on a clean day is the correct output, not a failure. Only look up a client's Slack channel if that client trips a flag.</p>
+          <ul>
+            <li><b>Rule A, due-date slippage:</b> for each client, track their next 4 upcoming open tasks. If a task's due date has drifted more than 3 days in total from when it was first tracked, flag it.</li>
+            <li><b>Rule B, submitted clients overdue:</b> any open task in the Submitted Clients folder with a past due date is always flagged. Submitted cases are more time-sensitive, so no grace period.</li>
+            <li><b>Status-aware framing:</b> still flag tasks marked "waiting on client" or "waiting on third party", but frame them as a delay sitting outside the firm (the client, a union/peer consultation, a co-star's signature).</li>
+          </ul>
+        </div>
+        <div class="brief-note">Firm, names, accounts and IDs hidden</div>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="n">i.</span><b>The problem</b><p>Client cases slipped quietly, with due dates drifting a few days at a time until someone noticed.</p></div>
+        <div class="step"><span class="n">ii.</span><b>What I built</b><p>A Mon/Wed/Fri check that tracks due-date drift for every client and flags overdue submitted cases.</p></div>
+        <div class="step res"><span class="n">iii.</span><b>The result</b><p>Stalled cases caught early, with no noise on clean days.</p></div>
+      </div>
+    </article>
+      </div>
+    </div>
     <a class="backlink rv" href="#builds">&uarr; All builds</a>
   </div>
 </section>
