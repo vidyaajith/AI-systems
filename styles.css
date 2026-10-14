@@ -238,3 +238,10 @@ footer a:hover{color:var(--gold);border-color:var(--gold)}
 .track::-webkit-scrollbar{display:none}
 .track > .case{flex:0 0 100%;scroll-snap-align:start;margin:0}
 @media(max-width:720px){.slider-arrows{display:none}}
+
+/* dashboard screenshots */
+.shots{display:grid;gap:16px;padding:clamp(16px,2.6vw,32px);border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 120%,var(--acc-soft),transparent 60%),var(--ink-3)}
+.case .shots .shot{border:1px solid var(--line);border-radius:10px;width:100%;height:auto}
+.shots .live{justify-self:start;display:inline-flex;align-items:center;gap:10px;margin-top:4px;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);text-decoration:none}
+.shots .live span{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.shots .live:hover span{transform:translateX(5px)}
