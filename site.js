@@ -24,6 +24,15 @@
   },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
 
+  document.querySelectorAll('.readmore').forEach(function(btn){
+    var box=btn.previousElementSibling, label=btn.textContent;
+    if(!box || box.scrollHeight<=box.clientHeight+40){ if(box) box.classList.add('open'); btn.remove(); return; }
+    btn.addEventListener('click',function(){
+      var open=box.classList.toggle('open');
+      btn.textContent=open?'Show less':label;
+    });
+  });
+
   document.querySelectorAll('.slider').forEach(function(sl){
     var track=sl.querySelector('.track'), slides=track.children,
         tabs=sl.querySelectorAll('.slider-tab'),

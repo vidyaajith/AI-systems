@@ -9,8 +9,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script>if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
-<link rel="stylesheet" href="styles.css?v=10">
+<script>document.documentElement.classList.add("js");if("IntersectionObserver" in window)document.documentElement.classList.add("js-rv");</script>
+<link rel="stylesheet" href="styles.css?v=11">
 </head>
 <body>
 
@@ -64,7 +64,7 @@
         <h3>Dashboards</h3><p>Live numbers, so you stop finding problems from clients.</p>
         <span class="more">See it <span>&rarr;</span></span>
       </a>
-      <a class="ap g rv" href="#agents">
+      <a class="ap rose rv" href="#agents">
         <span class="num">02</span>
         <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 15c3 0 5 1.6 5 4.5"/></svg></div>
         <h3>Chief of Staff agents</h3><p>Briefs, follow-ups and tracking that run in the background.</p>
@@ -116,7 +116,7 @@
   </div>
 </section>
 
-<section id="agents" class="build acc-green">
+<section id="agents" class="build acc-rose">
   <div class="wrap">
     <div class="tagrow rv">
       <div class="icobox"><svg class="ico" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-5 6-5s6 1.7 6 5"/><circle cx="17.5" cy="9.5" r="2.2"/><path d="M16 15c3 0 5 1.6 5 4.5"/></svg></div>
@@ -139,14 +139,14 @@
       <div class="brief">
         <div class="brief-head"><span class="dot"></span><span>Weekly ops brief</span><span class="by">Chief of Staff agent</span></div>
         <p class="brief-lead">Worth a look:</p>
-        <ul>
-          <li><b>Wins:</b> 10 were logged in the last 7 days, but 9 are placeholder opportunities created as already-won on the same day. So the dashboard's "most recent wins" and "days since last close" are misleading. Probably a data-entry pattern to clean up in GHL.</li>
-          <li><b><span class="redact" aria-label="name hidden">Xxxxx Xxxxxx Xxxxx</span></b> (submitted) has a blocked "RFE Response" task, and is also the oldest unanswered GHL thread, at 195 days.</li>
-          <li><b>Filed this week:</b> <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span> and <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>. One client's Slack is flagged: the attorney has a question that could put their adjustment of status at risk.</li>
-          <li><b><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span></b> is a new active matter. <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>'s list was recreated under a new ID, and the old duplicate lists are gone.</li>
-          <li><b>Pipeline:</b> 208 open, 64% stuck in Contact Attempted. Calls dropped 38% week over week (66 vs 107), and 40 leads were reached. The old 2026 pipeline still has 418 opportunities left to migrate, almost flat.</li>
-          <li><b>Ops Review:</b> all 16 "this week priority" tasks are stale. Five haven't been touched in 7 days, including the change-of-attorney letter decision. There are 322 open tasks, 40 completed this week and 33 new. No week-ago snapshot exists yet, so the % change is blank.</li>
-        </ul>
+        <div class="brief-grid">
+          <div class="bi"><span class="tag">Wins</span><p>10 were logged in the last 7 days, but 9 are placeholder opportunities created as already-won on the same day. So the dashboard's "most recent wins" and "days since last close" are misleading. Probably a data-entry pattern to clean up in GHL.</p></div>
+          <div class="bi"><span class="tag">Blocked RFE</span><p><b><span class="redact" aria-label="name hidden">Xxxxx Xxxxxx Xxxxx</span></b> (submitted) has a blocked "RFE Response" task, and is also the oldest unanswered GHL thread, at 195 days.</p></div>
+          <div class="bi"><span class="tag">Filed this week</span><p><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span> and <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>. One client's Slack is flagged: the attorney has a question that could put their adjustment of status at risk.</p></div>
+          <div class="bi"><span class="tag">New matter</span><p><b><span class="redact" aria-label="name hidden">Xxxx Xxxxx</span></b> is a new active matter. <span class="redact" aria-label="name hidden">Xxxx Xxxxx</span>'s list was recreated under a new ID, and the old duplicate lists are gone.</p></div>
+          <div class="bi"><span class="tag">Pipeline</span><p>208 open, 64% stuck in Contact Attempted. Calls dropped 38% week over week (66 vs 107), and 40 leads were reached. The old 2026 pipeline still has 418 opportunities left to migrate, almost flat.</p></div>
+          <div class="bi"><span class="tag">Ops Review</span><p>all 16 "this week priority" tasks are stale. Five haven't been touched in 7 days, including the change-of-attorney letter decision. There are 322 open tasks, 40 completed this week and 33 new. No week-ago snapshot exists yet, so the % change is blank.</p></div>
+        </div>
         <div class="brief-note">Client names hidden</div>
       </div>
       <div class="steps">
@@ -162,9 +162,10 @@
       </div>
       <div class="chat">
         <div class="q">Why is <span class="redact" aria-label="name hidden">Xxxxx Xxxx</span>'s case not sent to union/peer group?</div>
-        <div class="tool">Used ClickUp: Filter Tasks &rsaquo;</div>
-        <div class="a">
-          <p>It's stuck on payment logistics to the union, not on anything with the client.</p>
+        <div class="reply">
+          <div class="who"><span class="av"></span>Chief of Staff agent<span class="used">Used ClickUp: Filter Tasks &rsaquo;</span></div>
+          <div class="a clamp">
+          <p class="lead">It's stuck on payment logistics to the union, not on anything with the client.</p>
           <p>Timeline from ClickUp + Slack:</p>
           <ul>
             <li>Client already paid the firm for the union/peer consultation, invoice sent. Both done.</li>
@@ -172,6 +173,8 @@
             <li><b>"Pay Union/Peer group and notify Case Manager"</b> (<span class="redact" aria-label="name hidden">Xxxxxxx</span>'s task, actually paying the union) is still marked <b>"to do"</b>, untouched.</li>
           </ul>
           <p>Why: the union requires payment by check, not card. That kicked off a mini saga. <span class="redact" aria-label="name hidden">Xxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxxxxx</span> how to handle it, <span class="redact" aria-label="name hidden">Xxxxxxx</span> asked <span class="redact" aria-label="name hidden">Xxxx</span> if they could still use the old Checkflo account, <span class="redact" aria-label="name hidden">Xxxx</span> needed to personally authorise the payment via an email prompt, <span class="redact" aria-label="name hidden">Xxxxxxx</span> flagged it as "awaiting approval", and <span class="redact" aria-label="name hidden">Xxxx</span> approved it.</p>
+          </div>
+          <button class="readmore" type="button">Read the full reply</button>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
@@ -188,9 +191,10 @@
       </div>
       <div class="chat">
         <div class="q">Can you check the SOPs in the shared drive and see if there is an existing SOP for RFEs?</div>
-        <div class="tool">Used 2 tools &rsaquo;</div>
-        <div class="a">
-          <p>Yes, there is one, and it's fairly comprehensive. I should have checked Drive first, sorry about that.</p>
+        <div class="reply">
+          <div class="who"><span class="av"></span>Chief of Staff agent<span class="used">Used 2 tools &rsaquo;</span></div>
+          <div class="a clamp">
+          <p class="lead">Yes, there is one, and it's fairly comprehensive. I should have checked Drive first, sorry about that.</p>
           <p><b class="doclink">"SOP: Request for Evidence (RFE) / Notice of Intent to Deny (NOID) Handling &amp; Pricing Calculation"</b></p>
           <p>It covers:</p>
           <ul>
@@ -202,6 +206,8 @@
           </ul>
           <p>So the gap isn't "no SOP". It's that this one exists but clearly isn't being followed consistently, since <span class="redact" aria-label="name hidden">Xxx Xxxxx</span>'s and <span class="redact" aria-label="name hidden">Xxxx Xxxx</span>'s RFEs both had confusion and delays recently. The doc itself looks solid.</p>
           <p>Given that, I'd scrap the draft I gave you and instead suggest: don't write a new SOP, audit whether the existing one is actually being used (deadline logged in ClickUp per step 5.1? page-count-based invoice issued per 5.5?). Want me to check either case against these specific steps to see where it broke down?</p>
+          </div>
+          <button class="readmore" type="button">Read the full reply</button>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
@@ -218,9 +224,11 @@
       </div>
       <div class="chat">
         <div class="q">Can you add a task for <span class="redact" aria-label="name hidden">Xxxxxxx</span> to update the LawPay SOP and the default account in LawPay to our new IOLTA account? Make it due tomorrow and tag it as this week's priority.</div>
-        <div class="tool">Used ClickUp: Create Task &rsaquo;</div>
-        <div class="a">
-          <p>Done: <b class="doclink">Update LawPay SOP and default account to new IOLTA</b>, assigned to <span class="redact" aria-label="name hidden">Xxxxxxx</span>, due tomorrow, tagged "this week priority."</p>
+        <div class="reply">
+          <div class="who"><span class="av"></span>Chief of Staff agent<span class="used">Used ClickUp: Create Task &rsaquo;</span></div>
+          <div class="a">
+          <p class="lead">Done: <b class="doclink">Update LawPay SOP and default account to new IOLTA</b>, assigned to <span class="redact" aria-label="name hidden">Xxxxxxx</span>, due tomorrow, tagged "this week priority."</p>
+          </div>
         </div>
         <div class="brief-note">Names and identifying details hidden</div>
       </div>
@@ -262,7 +270,7 @@
         </div>
         <div class="task-src">Reads <span>Gmail</span><span>Slack</span><span>ClickUp</span></div>
         <div class="task-label">Instructions</div>
-        <div class="a">
+        <div class="a clamp">
           <p>You are producing a daily strategic business report for <span class="redact" aria-label="name hidden">XX Xxxxxxxxxx</span>, a boutique immigration law firm. The recipient is the COO. Deliver the report as a Slack message to a group DM with the COO and the founder.</p>
           <p>Gather data from these sources, focusing on the last 24 hours plus anything still open or unresolved from before that:</p>
           <ul>
@@ -272,6 +280,7 @@
           </ul>
           <p>Then write a concise Slack message, starting with <b>🔴 Needs attention today</b>: the 3–5 most urgent items across all three platforms, each with enough context to act on.</p>
         </div>
+        <button class="readmore" type="button">Read full instructions</button>
         <div class="brief-note">Firm, names, accounts and IDs hidden</div>
       </div>
       <div class="steps">
@@ -292,7 +301,7 @@
         </div>
         <div class="task-src">Reads <span>Gmail</span><span>Slack</span><span>ClickUp</span></div>
         <div class="task-label">Instructions</div>
-        <div class="a">
+        <div class="a clamp">
           <p>You are acting as a daily briefing assistant for the Chief of Staff at <span class="redact" aria-label="name hidden">XX Xxxxxxxxxx</span>. Your job is to prepare a clean, actionable morning briefing AND create ClickUp tasks for anything that needs attention. This runs on working days only.</p>
           <p><b>Objective:</b> scan Gmail and Slack for anything that needs attention today, present it as a concise prioritised summary, and create a ClickUp task in the COS Team list for each action item found.</p>
           <ul>
@@ -302,6 +311,7 @@
             <li><b>Step 3, ClickUp:</b> create one task per action item, with context and a link back to the source.</li>
           </ul>
         </div>
+        <button class="readmore" type="button">Read full instructions</button>
         <div class="brief-note">Firm, names, accounts and IDs hidden</div>
       </div>
       <div class="steps">
@@ -322,7 +332,7 @@
         </div>
         <div class="task-src">Reads <span>ClickUp</span><span>Slack</span></div>
         <div class="task-label">Instructions</div>
-        <div class="a">
+        <div class="a clamp">
           <p>You are running the client STAGNATION check: a lean, targeted alert system that complements the full weekly client status check. Each run starts fresh; all history lives in a ClickUp doc page.</p>
           <p><b>Cost discipline is the whole point.</b> Don't build full per-client tables. Don't create a new page each run. Don't post anything if nothing is flagged. Silence on a clean day is the correct output, not a failure. Only look up a client's Slack channel if that client trips a flag.</p>
           <ul>
@@ -331,6 +341,7 @@
             <li><b>Status-aware framing:</b> still flag tasks marked "waiting on client" or "waiting on third party", but frame them as a delay sitting outside the firm (the client, a union/peer consultation, a co-star's signature).</li>
           </ul>
         </div>
+        <button class="readmore" type="button">Read full instructions</button>
         <div class="brief-note">Firm, names, accounts and IDs hidden</div>
       </div>
       <div class="steps">
@@ -415,6 +426,6 @@
   <div><a href="https://vidyaajith.github.io/main-portfolio/">Home</a> &nbsp;·&nbsp; <a href="https://calendly.com/athmanaajith/30min?month=2026-08" target="_blank" rel="noopener">Book a call</a> &nbsp;·&nbsp; <a href="mailto:athmajaajith@gmail.com">Email</a></div>
 </footer>
 
-<script src="site.js?v=4"></script>
+<script src="site.js?v=5"></script>
 </body>
 </html>
