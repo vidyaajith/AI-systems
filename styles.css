@@ -136,7 +136,6 @@ footer a:hover{color:var(--gold);border-color:var(--gold)}
 @media(max-width:1000px){
   .approach{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:1fr;gap:40px}
-  .rgrid{grid-template-columns:1fr}
 }
 @media(max-width:720px){
   .nav-cta{font-size:10.5px;letter-spacing:.06em;padding:8px 14px}
@@ -292,3 +291,5 @@ footer a:hover{color:var(--gold);border-color:var(--gold)}
 .readmore{display:none}
 .js .readmore{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin-top:12px;font:inherit;font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);background:none;border:1px solid var(--acc-line);border-radius:100px;padding:8px 14px;cursor:pointer;transition:background .3s ease}
 .js .readmore:hover{background:var(--acc-soft)}
+
+@media(max-width:720px){.rgrid{grid-template-columns:1fr}}
